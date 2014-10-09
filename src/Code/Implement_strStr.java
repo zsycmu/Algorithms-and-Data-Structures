@@ -6,6 +6,10 @@ package Code;
 
 public class Implement_strStr {
 	public String strStr(String haystack, String needle) {
+        if (haystack == null || haystack.length() == 0 || needle == null || needle.length() == 0) {
+        	return null;
+        }
         
+        return null;
     }
 }
