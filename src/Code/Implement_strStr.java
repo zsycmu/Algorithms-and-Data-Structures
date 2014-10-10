@@ -10,12 +10,11 @@ public class Implement_strStr {
         	return null;
         }
         
-        int i;
         int j;
-        for (i = 0; i < haystack.length(); i++) {
+        for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
         	for (j = 0; j < needle.length(); j++) {
-        		if (haystack.charAt(i) != haystack.charAt(j)) {
-        			continue;
+        		if (haystack.charAt(i + j) != needle.charAt(j)) {
+        			break;
         		}
         	}
         	if (j == needle.length()) {
