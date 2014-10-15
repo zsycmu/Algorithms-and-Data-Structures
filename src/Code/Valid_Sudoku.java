@@ -33,7 +33,7 @@ public class Valid_Sudoku {
         for (int i = 0; i < m; i++) {
         	set = new HashSet<Character>();
         	for (int j = 0; j < n; j++) {
-        		if (set.contains(board[j][i]) && board[i][j] != '.') {
+        		if (set.contains(board[j][i]) && board[j][i] != '.') {
             		return false;
             	} else {
             		set.add(board[j][i]);
@@ -41,9 +41,9 @@ public class Valid_Sudoku {
         	}
         }
         
-        for (int i = 0; i < m; i = i + 3) {
+        for (int i = 0; i < m - 3; i = i + 3) {
         	set = new HashSet<Character>();
-        	for (int j = 0; j < n; j = j + 3) {
+        	for (int j = 0; j < n - 3; j = j + 3) {
     		    for (int k = 0; k<9; k++) {
                     if (set.contains(board[i + k/3][ j + k%3]) && board[i + k/3][ j + k%3] != '.') {
                         return false;
