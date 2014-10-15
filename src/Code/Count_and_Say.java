@@ -11,30 +11,31 @@ package Code;
 
 public class Count_and_Say {
 	public static String countAndSay(int n) {
-        if (n == 0) {
-        	return null;
+        if (n == 1) {
+        	return "1";
         }
         
         String compareString = "1";
-        String result = "";
-        
-        while (n > 0) {
-        	int count = 1;
-        	int index = 0;
-        	int i;
-        	for (i = 0; i < compareString.length(); i++) {
-        		if (i == 0 || compareString.charAt(i) != compareString.charAt(i - 1)) {
-        			result = result + count + compareString.charAt(i);
-        			compareString = result;
-        			count = 1;
-        		} else {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+    	int i = 0;
+        int time = 1;
+        while (time++ < n) {
+        	count = 1;
+        	new StringBuilder();
+        	for (i = 1; i < compareString.length(); i++) {
+        		if (compareString.charAt(i) == compareString.charAt(i - 1)) {
         			count++;
+        		} else {
+        			sb.append(count).append(compareString.charAt(i - 1));
+        			count = 1;
         		}
         	}
-        	n--;
+        	sb.append(count).append(compareString.charAt(i - 1));
+        	compareString = sb.toString();
         }
         
-        return result;
+        return sb.toString();
     }
 	
 	public static void main(String[] args) {
