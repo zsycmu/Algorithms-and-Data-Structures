@@ -15,25 +15,18 @@ public class Count_and_Say {
         	return null;
         }
         
-        if (n == 1) {
-        	return "1";
-        }
-        
-        if (n == 2) {
-        	return "11";
-        }
-        
-        String compareString = "11";
+        String compareString = "1";
         String result = "";
         
         while (n > 0) {
         	int count = 1;
         	int index = 0;
         	int i;
-        	for (i = 1; i < compareString.length(); i++) {
-        		if (compareString.charAt(i) != compareString.charAt(i - 1)) {
+        	for (i = 0; i < compareString.length(); i++) {
+        		if (i == 0 || compareString.charAt(i) != compareString.charAt(i - 1)) {
         			result = result + count + compareString.charAt(i);
-        			count = 0;
+        			compareString = result;
+        			count = 1;
         		} else {
         			count++;
         		}
